@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/rsacrypto.iml" filepath="$PROJECT_DIR$/.idea/modules/rsacrypto.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/rsacrypto_main.iml" filepath="$PROJECT_DIR$/.idea/modules/rsacrypto_main.iml" group="rsacrypto" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/rsacrypto_test.iml" filepath="$PROJECT_DIR$/.idea/modules/rsacrypto_test.iml" group="rsacrypto" />
+    </modules>
+  </component>
+</project>

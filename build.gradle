@@ -1,0 +1,49 @@
+group 'rsacrypto'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+    compile("org.thymeleaf.extras:thymeleaf-extras-java8time")
+
+    compile("org.projectlombok:lombok")
+    compile("org.webjars:bootstrap:${webjarsBootstrapVersion}")
+    compile("org.webjars:jquery:${webjarsJqueryVersion}")
+
+
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath group: 'org.springframework.boot', name: 'spring-boot-gradle-plugin', version: springBootVersion
+    }
+}
+
+jar {
+    manifest {
+        attributes "Implementation-Version": project.version
+        attributes "Implementation-Title": "RsaCrypto"
+    }
+}
+
+springBoot {
+    mainClass = "rsacrypto.Application"
+}
+
+bootRun {
+    jvmArgs = ["-Dspring.output.ansi.enabled=ALWAYS"]
+}

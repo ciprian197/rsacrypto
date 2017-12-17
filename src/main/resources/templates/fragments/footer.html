@@ -1,0 +1,26 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+<!--/*@thymesVar id="implVersion" type="java.lang.String"*/-->
+
+<head>
+</head>
+<body>
+<div th:fragment="footer" class="container-fluid inline">
+
+    <footer class="text-center footer navbar-fixed-bottom">
+
+        <script type="application/javascript"
+                th:src="@{/webjars/jquery/3.2.1/jquery.min.js}"></script>
+
+        <script type="application/javascript"
+                th:src="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
+
+        <script type="application/javascript"
+                th:src="@{/js/main.js}"></script>
+
+    </footer>
+
+</div>
+</body>
+</html>

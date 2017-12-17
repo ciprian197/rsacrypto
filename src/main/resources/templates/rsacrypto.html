@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<!--/*@thymesVar id="encryptDto" type="com.crypto.dto.EncryptDto"*/-->
+<!--/*@thymesVar id="decryptDto" type="com.crypto.dto.DecryptDto"*/-->
+
+<head th:include="fragments/header :: header-css"></head>
+
+<body>
+
+<div th:replace="fragments/header :: header"></div>
+
+<div class="container">
+
+    <div class="row" style="margin-top:20px">
+        <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+
+            <div th:if="${success}">
+                <div class="alert alert-success">
+                    <th:block th:text="Succes!"/>
+                </div>
+            </div>
+
+            <form th:action="@{/encrypt}" th:object="${encryptDto}" method="post">
+                <fieldset>
+                    <h3 class="text-center" title="Encrypt text"></h3>
+                    <div class="form-group">
+                        <input type="text" name="alphabet" id="alphabet" class="form-control input-lg"
+                               placeholder="Alphabet" th:field="*{alphabet}" required="required"
+                               autofocus="autofocus"/>
+                        <div class="form-group has-error">
+                            <span class="help-block" th:if="${#fields.hasErrors('alphabet')}"
+                                  th:errors="*{alphabet}"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="keywordd" id="keyword" class="form-control input-lg"
+                               placeholder="Keyword" th:field="*{keyword}" required="required"/>
+                        <div class="form-group has-error">
+                            <span class="help-block" th:if="${#fields.hasErrors('keyword')}"
+                                  th:errors="*{keyword}"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="plaintext" id="plaintext" class="form-control input-lg"
+                               placeholder="Plaintext" th:field="*{plaintext}"
+                               required="required"/>
+                        <div class="form-group has-error">
+                            <span class="help-block" th:if="${#fields.hasErrors('plaintext')}"
+                                  th:errors="*{plaintext}"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="ciphertext" id="ciphertext" class="form-control input-lg"
+                               placeholder="Encrypted text" th:field="*{ciphertext}" readonly="readonly"/>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3">
+                        </div>
+                        <div class="col-xs-6">
+                            <input type="submit" class="btn btn-lg btn-primary btn-block"
+                                   th:value="Encrypt"/>
+                        </div>
+                        <div class="col-xs-3">
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+
+            <form th:action="@{/decrypt}" th:object="${decryptDto}" method="post">
+                <fieldset>
+                    <h3 class="text-center" title="Decrypt text"></h3>
+                    <div class="form-group">
+                        <input type="text" name="alphabetd" id="alphabetd" class="form-control input-lg"
+                               th:placeholder="Alphabet" th:field="*{alphabetd}" required="required"
+                               autofocus="autofocus"/>
+                        <div class="form-group has-error">
+                            <span class="help-block" th:if="${#fields.hasErrors('alphabetd')}"
+                                  th:errors="*{alphabetd}"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="keywordd" id="keywordd" class="form-control input-lg"
+                               placeholder="Keyword" th:field="*{keywordd}" required="required"/>
+                        <div class="form-group has-error">
+                            <span class="help-block" th:if="${#fields.hasErrors('keywordd')}"
+                                  th:errors="*{keywordd}"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="plaintextd" id="plaintextd" class="form-control input-lg"
+                               placeholder="Plaintext" th:field="*{plaintextd}"
+                               required="required"/>
+                        <div class="form-group has-error">
+                            <span class="help-block" th:if="${#fields.hasErrors('plaintextd')}"
+                                  th:errors="*{plaintextd}"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="decryptedText" id="decryptedText" class="form-control input-lg"
+                               placeholder="Decrypted text" th:field="*{decryptedText}" readonly="readonly"/>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3">
+                        </div>
+                        <div class="col-xs-6">
+                            <input type="submit" class="btn btn-lg btn-primary btn-block"
+                                   value="Decrypt"/>
+                        </div>
+                        <div class="col-xs-3">
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+
+
+        </div>
+    </div>
+
+</div>
+
+<div th:replace="fragments/footer :: footer"></div>
+
+</body>
+</html>
