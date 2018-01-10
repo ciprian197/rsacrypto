@@ -25,11 +25,15 @@ public class RSA {
     private Random r;
     public RSA() {
         r = new Random();
-        p = BigInteger.probablePrime(bitlength, r);
-        q = BigInteger.probablePrime(bitlength, r);
-        N = p.multiply(q);
         k = 2;
         l = 3;
+        do {
+            p = BigInteger.probablePrime(bitlength, r);
+            q = BigInteger.probablePrime(bitlength, r);
+            N = p.multiply(q);
+            bitlength++;
+        }while (N.compareTo(BigInteger.valueOf((int)pow(27,k))) < 0 || N.compareTo(BigInteger.valueOf((int)pow(27,l))) > 0);
+
 //        p = new BigInteger("31");
 //        q = new BigInteger("53");
 //
@@ -40,7 +44,7 @@ public class RSA {
         e = BigInteger.probablePrime(bitlength, r);
 
         while (phi.gcd(e).compareTo(BigInteger.ONE) > 0 && e.compareTo(phi) < 0 ) {
-            e.add(BigInteger.ONE);
+            e = e.add(BigInteger.ONE);
         }
 
         d = e.modInverse(phi);
