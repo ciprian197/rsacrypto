@@ -18,15 +18,7 @@ import javax.validation.constraints.Pattern;
 public class DecryptDto {
 
     @NotEmpty
-    @Pattern(regexp = "[A-Z ]*", message = "The alphabet must contain only uppercase letters or blank space!")
-    private String alphabetd;
-
-    @NotEmpty
-    @Pattern(regexp = "[A-Z ]*", message = "The keyword must contain only uppercase letters or blank space!")
-    private String  keywordd;
-
-    @NotEmpty
-    @Pattern(regexp = "[a-z ]*", message = "The plaintext must contain only lowercase letters or blank space!")
+    @Pattern(regexp = "[A-Z_]*", message = "The plaintext must contain only lowercase letters or blank space!")
     private String plaintextd;
 
     private String decryptedText;
