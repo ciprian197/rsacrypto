@@ -23,6 +23,10 @@
             </div>
 
             <h3 th:text="'Public key is: '+ ${publicKey}"></h3>
+            <h4 th:text="'Phi is: '+ ${phi}"></h4>
+            <h4 th:text="'P is: '+ ${p}"></h4>
+            <h4 th:text="'Q is: '+ ${q}"></h4>
+            <h4 th:text="'N is: '+ ${n}"></h4>
 
             <form th:action="@{encrypt}" th:object="${encryptDto}" method="post">
                 <fieldset>

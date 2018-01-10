@@ -1,6 +1,7 @@
 package rsacrypto.RSA;
 
 
+import lombok.Getter;
 import org.springframework.stereotype.Component;
 
 import java.io.DataInputStream;
@@ -15,6 +16,7 @@ import static java.lang.Math.pow;
  * Created by dariusi on 1/9/18.
  */
 @Component
+@Getter
 public class RSA {
     private BigInteger p;
     private BigInteger q;

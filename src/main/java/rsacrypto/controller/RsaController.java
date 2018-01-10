@@ -28,6 +28,10 @@ public class RsaController {
         model.addAttribute("encryptDto", new EncryptDto());
         model.addAttribute("decryptDto", new DecryptDto());
         model.addAttribute("publicKey", rsa.getPublicKey().doubleValue());
+        model.addAttribute("phi",rsa.getPhi());
+        model.addAttribute("p",rsa.getP());
+        model.addAttribute("q",rsa.getQ());
+        model.addAttribute("n",rsa.getN());
         return "rsacrypto";
     }
 
@@ -37,6 +41,10 @@ public class RsaController {
         if (bindingResult.hasErrors()) {
             model.addAttribute("publicKey", rsa.getPublicKey().doubleValue());
             model.addAttribute("decryptDto", new DecryptDto());
+            model.addAttribute("phi",rsa.getPhi());
+            model.addAttribute("p",rsa.getP());
+            model.addAttribute("q",rsa.getQ());
+            model.addAttribute("n",rsa.getN());
             return "rsacrypto";
         }
 
@@ -44,6 +52,10 @@ public class RsaController {
         model.addAttribute("publicKey", rsa.getPublicKey().doubleValue());
         model.addAttribute("encryptDto", encryptDto);
         model.addAttribute("decryptDto", new DecryptDto());
+        model.addAttribute("phi",rsa.getPhi());
+        model.addAttribute("p",rsa.getP());
+        model.addAttribute("q",rsa.getQ());
+        model.addAttribute("n",rsa.getN());
         return "rsacrypto";
 
     }
@@ -53,12 +65,20 @@ public class RsaController {
         if (bindingResult.hasErrors()) {
             model.addAttribute("publicKey", rsa.getPublicKey().doubleValue());
             model.addAttribute("encryptDto", new EncryptDto());
+            model.addAttribute("phi",rsa.getPhi());
+            model.addAttribute("p",rsa.getP());
+            model.addAttribute("q",rsa.getQ());
+            model.addAttribute("n",rsa.getN());
             return "rsacrypto";
         }
         decryptDto.setDecryptedText(rsa.decrypt(decryptDto.getPlaintextd()).toLowerCase());
         model.addAttribute("publicKey", rsa.getPublicKey().doubleValue());
         model.addAttribute("encryptDto", new EncryptDto());
         model.addAttribute("decryptDto", decryptDto);
+        model.addAttribute("phi",rsa.getPhi());
+        model.addAttribute("p",rsa.getP());
+        model.addAttribute("q",rsa.getQ());
+        model.addAttribute("n",rsa.getN());
         return "rsacrypto";
     }
 
